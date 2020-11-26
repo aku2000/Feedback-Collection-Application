@@ -8,4 +8,7 @@ app.get('/', (req, res) =>
 {
     res.send({ hi: 'There' });
 });
-app.listen(5000);
+
+//Dynamic Port Binding using Heroku
+const PORT = process.env.PORT || 5000;
+app.listen(PORT);
