@@ -6,7 +6,7 @@ const app = express();
 
 app.get('/', (req, res) =>
 {
-    res.send({ hi: 'There' });
+    res.send({ bye: 'Guddi' });
 });
 
 //Dynamic Port Binding using Heroku
