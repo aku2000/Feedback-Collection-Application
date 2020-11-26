@@ -1,2 +1,3 @@
 # Node-with-React-fullstack-web-development
-Contains all source code of projects and assignments from 'Node with React fullstack web development' .
+
+Creating a Feedback Collection Application for Startup Owners and Product Managers.
