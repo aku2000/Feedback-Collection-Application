@@ -2,11 +2,11 @@
 makes use of es 2015 modules which is not supported by nodejs so in the backend part we will make use of below format that is common js modules(only in server side).*/
 const express = require('express');
 const mongoose = require('mongoose');
-const keys = require('./config/keys')
-require('./services/passport');
+const keys = require('./config/keys');
 require('./models/User')
+require('./services/passport');
 
-mongoose.connnect(keys.mongoURI);
+mongoose.connect(keys.mongoURI);
 
 const app = express();
 
