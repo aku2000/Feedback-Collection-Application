@@ -5,11 +5,13 @@ const keys = require('../config/keys');
 
 const User = mongoose.model('users');
 
+//mongoose model instance-user is turned into id and stored in cookies
 passport.serializeUser((user, done) =>
 {
     done(null, user.id);
 });
 
+//id is searched and returns user(model instance)
 passport.deserializeUser((id, done) =>
 {
     User.findById(id)
