@@ -18,11 +18,14 @@ passport.use(
             {
                 if (existingUser)
                 {
-
+                    done(null, existingUser);
                 }
                 else
                 {
-                    new User({ googleId: profile.id }).save();
+                    //create mongo model instance aka new record
+                    new User({ googleId: profile.id })
+                        .save()
+                        .then(user => done(null, user));
                 }
             })
         }
