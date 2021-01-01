@@ -1,8 +1,20 @@
 import React, { Component } from 'react';
 import logo from '../images/Logo.png';
-
+import { connect } from 'react-redux'
 class Header extends Component 
 {
+    renderContent()
+    {
+        switch (this.props.auth)
+        {
+            case null:
+                return 'Stil deciding';
+            case false:
+                return 'I am logged out';
+            default:
+                return 'I am logged in';
+        }
+    }
     render()
     {
         return (
@@ -12,11 +24,17 @@ class Header extends Component
                         <img src={logo} alt="Logo" height="auto" width="68" />
                     </a>
                     <ul id="nav-mobile" className="right hide-on-med-and-down">
-                        <li><a href="#">Login with Google</a></li>
+                        {this.renderContent()}
                     </ul>
                 </div>
             </nav>
         );
     }
 }
-export default Header;
+
+function mapStateToProps({ auth })
+{
+    return { auth };
+}
+
+export default connect(mapStateToProps)(Header);
